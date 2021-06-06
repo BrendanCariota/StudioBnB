@@ -13,6 +13,7 @@ import Entype from 'react-native-vector-icons/Entypo';
 
 // Screens
 import HomeScreen from './src/screens/Home'
+import Post from './src/components/Post'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -25,7 +26,8 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <HomeScreen />
+        {/* <HomeScreen /> */}
+        <Post />
       </SafeAreaView>
     </>
   );

@@ -10,7 +10,7 @@ const HomeScreen = (props) => {
             {/* Background */}
             <ImageBackground source={require('../../../assets/images/HomeScreen.jpg')} style={styles.image}>
                 {/* Title */}
-                <Text style={styles.title}>Jam Near</Text>
+                <Text style={styles.title}>Go Play</Text>
 
                 {/* Button */}
                 <Pressable style={styles.button} onPress={() => console.warn('Explore datat clicked')}>

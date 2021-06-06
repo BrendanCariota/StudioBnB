@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         fontSize: 80,
         fontWeight: 'bold',
         color: 'white',
-        width: '70%',
+        width: '65%',
         marginLeft: 25,
         lineHeight: 80,
     },
@@ -31,13 +31,14 @@ const styles = StyleSheet.create({
     btnText: {
         fontSize: 16,
         fontWeight: 'bold',
+        color: '#323232',
     },
 
     searchBtn: {
         backgroundColor: '#fff',
         height: 60,
-        width: Dimensions.get('screen').width - 20,
-        marginHorizontal: 10,
+        width: Dimensions.get('screen').width - 50,
+        marginHorizontal: 25,
         borderRadius: 30,
         flexDirection: 'row',
         justifyContent: 'center',
@@ -51,7 +52,8 @@ const styles = StyleSheet.create({
     searchBtnText: {
         fontSize: 16,
         fontWeight: 'bold',
-        marginLeft: 7,
+        marginLeft: 15,
+        color: '#323232'
     },
 })
 
