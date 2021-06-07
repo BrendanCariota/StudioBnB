@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
+    screen: {
+        justifyContent: 'space-between',
+        height: '100%',
+    },
+
     row: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -45,7 +50,17 @@ const styles = StyleSheet.create({
     plusMinus: {
         fontSize: 24,
         color: '#646464'
-    }
+    },
+
+    searchBtn: {
+        marginBottom: 20,
+        backgroundColor: '#f15454',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 50,
+        marginHorizontal: 20,
+        borderRadius: 10,
+    },
 })
 
 export default styles
