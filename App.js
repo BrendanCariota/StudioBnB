@@ -15,6 +15,7 @@ import Entype from 'react-native-vector-icons/Entypo';
 import HomeScreen from './src/screens/Home'
 import SearchResultsScreen from './src/screens/SearchResults'
 import DestinationSearchScreen from './src/screens/DestinationSearch'
+import GuestScreen from './src/screens/Guests';
 // Components
 import Post from './src/components/Post'
 // Data
@@ -31,7 +32,8 @@ const App = () => {
         {/* <HomeScreen /> */}
         {/* <Post post={post1}/> */}
         {/* <SearchResultsScreen /> */}
-        <DestinationSearchScreen />
+        {/* <DestinationSearchScreen /> */}
+        <GuestScreen />
       </SafeAreaView>
     </>
   );
