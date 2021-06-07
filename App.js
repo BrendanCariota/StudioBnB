@@ -13,25 +13,23 @@ import Entype from 'react-native-vector-icons/Entypo';
 
 // Screens
 import HomeScreen from './src/screens/Home'
+import SearchResultsScreen from './src/screens/SearchResults'
+// Components
 import Post from './src/components/Post'
-
+// Data
 import feed from './assets/data/feed'
 
 const post1 = feed[0]
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         {/* <HomeScreen /> */}
-        <Post post={post1}/>
+        {/* <Post post={post1}/> */}
+        <SearchResultsScreen />
       </SafeAreaView>
     </>
   );
