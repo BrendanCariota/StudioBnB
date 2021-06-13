@@ -28,7 +28,7 @@ const Router = () => {
                     }}
                 />
                 <Stack.Screen 
-                    name={'Guest Screen'} 
+                    name={'Guests'} 
                     component={GuestScreen} 
                     options={{
                         title: 'How many people'

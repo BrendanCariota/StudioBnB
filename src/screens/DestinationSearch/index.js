@@ -1,40 +1,39 @@
 import React, {useState} from 'react'
 import { View, Text, TextInput, FlatList, Pressable } from 'react-native'
 import styles from './styles'
-import Entypo from 'react-native-vector-icons/Entypo'
-import { useNavigation } from '@react-navigation/native'
 
-import searchData from '../../../assets/data/search'
+import { useNavigation } from '@react-navigation/native'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
+import SuggestionRow from './SuggestionRow'
+
 
 const DestinationSearchScreen = () => {
 
     const navigation = useNavigation()
 
-    // State
-    const [input, setInput] = useState('')
-
     return (
         <View style={styles.container}>
-            {/* Input Component */}
-            <TextInput 
-                style={styles.textInput}
+            
+            <GooglePlacesAutocomplete
                 placeholder='Where are you going?'
-                value={input}
-                onChangeText={setInput}
+                onPress={(data, details = null) => {
+                    // 'details' is provided when fetchDetails = true
+                    console.log(data, details);
+                    navigation.navigate('Guests')
+                }}
+                query={{
+                    key: 'AIzaSyAUbUopIqlfLDwcacMWZjjLzvxQ0adcSxg',
+                    language: 'en',
+                    types: '(cities)',
+                }}
+                fetchDetails
+                styles={{
+                    textInput: styles.textInput
+                }}
+                suppressDefaultStyles
+                renderRow={(item) => <SuggestionRow item={item} />}
             />
-
-            {/* List of destinations */}
-            <FlatList
-                data={searchData}
-                renderItem={({item}) => 
-                    <Pressable style={styles.row} onPress={() => navigation.navigate('Guest Screen')}>
-                        <View style={styles.iconContainer}>
-                            <Entypo name={'location-pin'} size={25} color={'#161616'}/>
-                        </View>
-                        <Text style={styles.locationText}>{item.description}</Text>
-                    </Pressable>
-                }
-            />
+            
         </View>
     )
 }
