@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 import MapView from 'react-native-maps';
 import styles from './styles'
 import CustomMarker from '../../components/CustomMarker';
+import PostCarouselItem from '../../components/PostCarouselItem'
 
 import places from '../../../assets/data/feed'
 
@@ -32,6 +33,10 @@ const SearchResultsMaps = () => {
                 ))
             }
             </MapView>
+
+            <View style={styles.carouselContainer}>
+                <PostCarouselItem post={places[0]}/>
+            </View>
         </View>
     )
 }
