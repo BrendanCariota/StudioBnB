@@ -14,7 +14,7 @@ const Post = ({ post }) => {
                 {/* Image */}
                 <Image style={styles.image} source={{ uri: image}} />
 
-                <View>
+                <View style={styles.textContainer}>
                     {/* Bed & Bedroom */}
                     <Text style={styles.bedrooms}>{bed} bed {bedroom} bath</Text>
 
@@ -22,14 +22,10 @@ const Post = ({ post }) => {
                     <Text style={styles.description} numberOfLines={2}>{type}. {title}</Text>
 
                     {/* Old price & New price */}
-                    <Text style={styles.prices}></Text>
-                    <Text style={styles.oldPrice}>${oldPrice} </Text>
-                    <Text style={styles.newPrice}> ${newPrice}</Text>
-                    <Text style={styles.rate}> / night</Text>
-        
-
-                    {/* Total Price */}
-                    <Text style={styles.totalPrice}>${totalPrice} total</Text>
+                    <Text style={styles.prices}>
+                        <Text style={styles.newPrice}> ${newPrice} </Text>
+                        / night
+                    </Text>
                 </View>
             </View>
         </View>

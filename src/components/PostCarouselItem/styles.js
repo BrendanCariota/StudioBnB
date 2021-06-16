@@ -3,7 +3,7 @@ import { StyleSheet} from 'react-native'
 const styles = StyleSheet.create({
     container: {
         margin: 20,
-        height: 120,
+        height: 110,
         padding: 5,
     },
 
@@ -12,6 +12,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 10,
         overflow: 'hidden',
+        height: 110,
+        marginHorizontal: 10,
+    },
+
+    textContainer: {
+        flex: 1,
+        marginHorizontal: 10,
     },
 
     image: {
@@ -21,19 +28,19 @@ const styles = StyleSheet.create({
     },
 
     bedrooms: {
-        marginVertical: 10,
+        marginVertical: 5,
         color: '#5b5b5b'
     },
 
     description: {
-        fontSize: 18,
-        lineHeight: 26,
+        fontSize: 14,
+        lineHeight: 24,
 
     },
 
     prices: {
-        fontSize: 18,
-        marginVertical: 10,
+        fontSize: 14,
+        marginVertical: 5,
     },
 
     oldPrice: {
