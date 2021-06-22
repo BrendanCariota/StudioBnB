@@ -1,15 +1,22 @@
 import React from 'react'
-import { View, Text, Image, useWindowDimensions } from 'react-native'
+import { View, Text, Image, useWindowDimensions, Pressable } from 'react-native'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native'
 
 const Post = ({ post }) => {
 
     const { bed, bedroom, id, title, type, image, description, oldPrice, newPrice, totalPrice, coordinate } = post
 
+    const navigation = useNavigation()
+
     const width = useWindowDimensions().width
 
+    const goToPostPage = () => {
+        navigation.navigate('Listing', {postId: id})
+    }
+
     return (
-        <View style={styles.container, { width: width - 60 }}>
+        <Pressable onPress={goToPostPage} style={styles.container, { width: width - 60 }}>
             <View style={styles.innerContainer}>
                 {/* Image */}
                 <Image style={styles.image} source={{ uri: image}} />
@@ -28,7 +35,7 @@ const Post = ({ post }) => {
                     </Text>
                 </View>
             </View>
-        </View>
+        </Pressable>
     )
 }
 
