@@ -5,6 +5,14 @@ const styles = StyleSheet.create({
         margin: 20,
         height: 110,
         padding: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            hieght: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 10,
     },
 
     innerContainer: {
