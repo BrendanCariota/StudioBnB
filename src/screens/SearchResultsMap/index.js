@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { View, Text, FlatList, useWindowDimensions } from 'react-native'
 import MapView from 'react-native-maps';
 import styles from './styles'
@@ -11,7 +11,20 @@ const SearchResultsMaps = () => {
 
     const [selectedPriceId, setSelectedPriceId] = useState(null)
 
+    // Used to reference flatlist and scroll to correct index when the corressponding marker is clicked
+    const flatList = useRef()
+
     const width = useWindowDimensions().width
+
+    useEffect(() => {
+        if (!selectedPriceId || !flatList) {
+            return;
+        }
+        const index = places.findIndex(place => place.id === selectedPriceId)
+        // expects an object
+        flatList.current.scrollToIndex({index})
+        console.warn('Scroll to ' + selectedPriceId)
+    }, [selectedPriceId])
 
     return (
         <View style={styles.mainContainer}>
@@ -38,6 +51,7 @@ const SearchResultsMaps = () => {
 
             <View style={styles.carouselContainer}>
                 <FlatList 
+                    ref={flatList}
                     data={places}
                     renderItem={({item}) => <PostCarouselItem post={item} />}
                     horizontal
@@ -45,6 +59,9 @@ const SearchResultsMaps = () => {
                     snapToInterval={width - 60}
                     snapToAlignment={"center"}
                     decelerationRate={"fast"}
+                    onViewableItemsChanged={({viewableItems}) => {
+                        console.log(viewableItems)
+                    }}
                 />
             </View>
         </View>
