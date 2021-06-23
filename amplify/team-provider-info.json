@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-studiobnb-dev-104145-authRole",
+      "UnauthRoleArn": "arn:aws:iam::234318833776:role/amplify-studiobnb-dev-104145-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::234318833776:role/amplify-studiobnb-dev-104145-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-studiobnb-dev-104145-deployment",
+      "UnauthRoleName": "amplify-studiobnb-dev-104145-unauthRole",
+      "StackName": "amplify-studiobnb-dev-104145",
+      "StackId": "arn:aws:cloudformation:us-east-1:234318833776:stack/amplify-studiobnb-dev-104145/e676f310-d441-11eb-a2e6-129177fe7919",
+      "AmplifyAppId": "d1mqlcnl1dy6qd"
+    }
+  },
+  "studiobnb": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-studiobnb-studiobnb-132828-authRole",
+      "UnauthRoleArn": "arn:aws:iam::234318833776:role/amplify-studiobnb-studiobnb-132828-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::234318833776:role/amplify-studiobnb-studiobnb-132828-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-studiobnb-studiobnb-132828-deployment",
+      "UnauthRoleName": "amplify-studiobnb-studiobnb-132828-unauthRole",
+      "StackName": "amplify-studiobnb-studiobnb-132828",
+      "StackId": "arn:aws:cloudformation:us-east-1:234318833776:stack/amplify-studiobnb-studiobnb-132828/307cb870-d459-11eb-9664-12605691f9eb",
+      "AmplifyAppId": "d1mqlcnl1dy6qd"
+    }
+  }
+}

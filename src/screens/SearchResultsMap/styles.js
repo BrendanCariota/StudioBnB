@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     markerText: {
         fontWeight: 'bold',
     },
+
+    carouselContainer: {
+        position: 'absolute',
+        bottom: 10,
+    },
 })
 
 export default styles
