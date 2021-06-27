@@ -12,8 +12,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Entype from 'react-native-vector-icons/Entypo';
 import Router from './src/navigation/router';
 
-// Screens
-import HomeScreen from './src/screens/Home'
+import { withAuthenticator } from 'aws-amplify-react-native'
 
 
 const App = () => {
@@ -26,4 +25,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withAuthenticator(App);

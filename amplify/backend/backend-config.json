@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "studiobnb737a1539": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

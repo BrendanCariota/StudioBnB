@@ -23,6 +23,11 @@
       "StackName": "amplify-studiobnb-studiobnb-132828",
       "StackId": "arn:aws:cloudformation:us-east-1:234318833776:stack/amplify-studiobnb-studiobnb-132828/307cb870-d459-11eb-9664-12605691f9eb",
       "AmplifyAppId": "d1mqlcnl1dy6qd"
+    },
+    "categories": {
+      "auth": {
+        "studiobnb737a1539": {}
+      }
     }
   }
 }
