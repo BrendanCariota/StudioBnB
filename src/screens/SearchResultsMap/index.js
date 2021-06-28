@@ -5,11 +5,30 @@ import styles from './styles'
 import CustomMarker from '../../components/CustomMarker';
 import PostCarouselItem from '../../components/PostCarouselItem'
 
-import places from '../../../assets/data/feed'
+import { API, graphqlOperation } from 'aws-amplify'
+import { listPosts } from '../../graphql/queries'
 
 const SearchResultsMaps = () => {
 
     const [selectedPriceId, setSelectedPriceId] = useState(null)
+    const [posts, setPosts] = useState([])
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const postsResult = await API.graphql(
+                    graphqlOperation(listPosts)
+                )
+                
+                setPosts(postsResult.data.listPosts.items)
+            } catch(e) {
+                console.log(e)
+            }
+        }
+
+        fetchPosts()
+    }, [])
+
 
     // Used to reference flatlist and scroll to correct index when the corressponding marker is clicked
     const flatList = useRef()
@@ -29,15 +48,15 @@ const SearchResultsMaps = () => {
         if (!selectedPriceId || !flatList) {
             return;
         }
-        const index = places.findIndex(place => place.id === selectedPriceId)
+        const index = posts.findIndex(place => place.id === selectedPriceId)
         // expects an object
         flatList.current.scrollToIndex({index})
 
         // Centers map on selected location
-        const selectedPlace = places[index]
+        const selectedPlace = posts[index]
         const region = {
-            latitude: selectedPlace.coordinate.latitude,
-            longitude: selectedPlace.coordinate.longitude,
+            latitude: selectedPlace.latitude,
+            longitude: selectedPlace.longitude,
             latitudeDelta: 0.8,
             longitudeDelta: 0.8,
         }
@@ -57,9 +76,9 @@ const SearchResultsMaps = () => {
             }}
             >
             {
-                places.map(place => (
+                posts.map(place => (
                     <CustomMarker 
-                        coordinate={place.coordinate} 
+                        coordinate={{ latitude: place.latitude, longitude: place.longitude }} 
                         price={place.newPrice} 
                         isSelected={place.id === selectedPriceId}
                         onPress={() => setSelectedPriceId(place.id)}
@@ -71,7 +90,7 @@ const SearchResultsMaps = () => {
             <View style={styles.carouselContainer}>
                 <FlatList 
                     ref={flatList}
-                    data={places}
+                    data={posts}
                     renderItem={({item}) => <PostCarouselItem post={item} />}
                     horizontal
                     showsHorizontalScrollIndicator={false}
