@@ -4,16 +4,28 @@ import styles from './styles'
 import Post from '../../components/Post'
 import { API, graphqlOperation } from 'aws-amplify'
 import { listPosts } from '../../graphql/queries'
+import { useRoute } from '@react-navigation/native'
 
-const SearchResultsScreen = () => {
+const SearchResultsScreen = (props) => {
+
+    const { guests } = props
 
     const [posts, setPosts] = useState([])
+    console.log(props)
+
+    
 
     useEffect(() => {
         const fetchPosts = async () => {
             try {
                 const postsResult = await API.graphql(
-                    graphqlOperation(listPosts)
+                    graphqlOperation(listPosts, {
+                        filter: {
+                            maxGuests: {
+                                ge: guests
+                            }
+                        }
+                    })
                 )
                 
                 setPosts(postsResult.data.listPosts.items)

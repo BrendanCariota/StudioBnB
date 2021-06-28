@@ -8,7 +8,9 @@ import PostCarouselItem from '../../components/PostCarouselItem'
 import { API, graphqlOperation } from 'aws-amplify'
 import { listPosts } from '../../graphql/queries'
 
-const SearchResultsMaps = () => {
+const SearchResultsMaps = (props) => {
+
+    const { guests } = props
 
     const [selectedPriceId, setSelectedPriceId] = useState(null)
     const [posts, setPosts] = useState([])
@@ -17,7 +19,13 @@ const SearchResultsMaps = () => {
         const fetchPosts = async () => {
             try {
                 const postsResult = await API.graphql(
-                    graphqlOperation(listPosts)
+                    graphqlOperation(listPosts, {
+                        filter: {
+                            maxGuests: {
+                                ge: guests
+                            }
+                        }
+                    })
                 )
                 
                 setPosts(postsResult.data.listPosts.items)

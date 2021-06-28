@@ -90,6 +90,9 @@ const GuestScreen = () => {
                 screen: 'Explore',
                 params: {
                     screen: 'SearchResults',
+                    params: {
+                       guests: adults + children,    
+                    }
                 }
             })}>
                 <Text style={{fontSize: 20, color: 'white', fontWeight: 'bold'}}>Search</Text>
