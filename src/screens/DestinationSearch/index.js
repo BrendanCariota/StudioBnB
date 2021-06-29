@@ -19,7 +19,9 @@ const DestinationSearchScreen = () => {
                 onPress={(data, details = null) => {
                     // 'details' is provided when fetchDetails = true
                     console.log(data, details);
-                    navigation.navigate('Guests')
+                    navigation.navigate('Guests', {
+                        viewport: details.geometry.viewport
+                    })
                 }}
                 query={{
                     key: 'AIzaSyAUbUopIqlfLDwcacMWZjjLzvxQ0adcSxg',

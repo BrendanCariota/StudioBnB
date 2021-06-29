@@ -10,33 +10,9 @@ import { listPosts } from '../../graphql/queries'
 
 const SearchResultsMaps = (props) => {
 
-    const { guests } = props
+    const { posts } = props
 
     const [selectedPriceId, setSelectedPriceId] = useState(null)
-    const [posts, setPosts] = useState([])
-
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const postsResult = await API.graphql(
-                    graphqlOperation(listPosts, {
-                        filter: {
-                            maxGuests: {
-                                ge: guests
-                            }
-                        }
-                    })
-                )
-                
-                setPosts(postsResult.data.listPosts.items)
-            } catch(e) {
-                console.log(e)
-            }
-        }
-
-        fetchPosts()
-    }, [])
-
 
     // Used to reference flatlist and scroll to correct index when the corressponding marker is clicked
     const flatList = useRef()
